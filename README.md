@@ -1,6 +1,6 @@
 
 # 权限管理
-
+[权限管理](doc/访问权限控制.md)
 # 有个坑请注意
 https://stackoverflow.com/questions/39541739/chromedriver-error-chrome-version-must-be-52-using-nightwatch
 问题的关键在于：ChromeDriver的版本和驱动问题
