@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import adminRouter from './admin'
 import publicRouter from './public'
+import store from './../store'
 Vue.use(Router)
 
 const router = new Router({
@@ -27,8 +28,8 @@ const router = new Router({
 })
 
 export function checkAuth (to, from, next) {
-  const auth = router.app.$options.store.state.auth
-  console.log(auth)
+  const auth = store.getters['auth']
+  // console.log(auth)
   if (auth.isLoggedIn) {
     next()
   } else {

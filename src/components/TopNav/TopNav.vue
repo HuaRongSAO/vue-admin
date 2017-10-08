@@ -1,7 +1,7 @@
 <template>
-<div  v-if="isShowNav">
+<div v-if="isShowNav">
   <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-    <el-menu-item index="index">
+    <el-menu-item index="index"  v-promise="promise">
       首页
     </el-menu-item>
     <el-menu-item index="login">
@@ -14,7 +14,10 @@
         <el-menu-item index="2-3">选项3</el-menu-item>
     </el-submenu>
     <el-menu-item index="3">
-        <a href="https://www.ele.me" target="_blank">订单管理</a>
+        promise
+    </el-menu-item>
+    <el-menu-item index="4">
+        show
     </el-menu-item>
   </el-menu>
 </div>
@@ -26,7 +29,8 @@ export default {
   data () {
     return {
       activeIndex: '1',
-      activeIndex2: '1'
+      activeIndex2: '1',
+      promise: true
     }
   },
   computed: {
@@ -36,6 +40,16 @@ export default {
   },
   methods: {
     handleSelect (key, keyPath) {
+      if (key === '3') {
+        this.promise = false
+        console.log(this.promise)
+        return
+      }
+      if (key === '4') {
+        this.promise = true
+        console.log(this.promise)
+        return
+      }
       this.$router.push({name: key})
     }
   }
