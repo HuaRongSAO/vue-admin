@@ -7,7 +7,14 @@ import router from './router'
 import store from './store'
 import Plug from './plug'
 
+import permission from './plug/permission'
+
 Plug.Derective
+// console.dir('permission', permission)
+Vue.use(permission, {
+  router,
+  store
+})
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false

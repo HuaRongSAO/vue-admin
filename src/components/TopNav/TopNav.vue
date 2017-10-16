@@ -1,9 +1,15 @@
 <template>
 <div v-if="isShowNav">
   <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-    <el-menu-item index="index"  v-promise="promise">
-      首页
+    <el-menu-item index="index" v-permission="promise">
+      permission1
     </el-menu-item>
+    <el-menu-item index="index" >
+      permission2
+    </el-menu-item>
+    <el-menu-item index="index" >
+      首页2
+    </el-menu-item> 
     <el-menu-item index="login">
       登入
     </el-menu-item>
@@ -30,7 +36,7 @@ export default {
     return {
       activeIndex: '1',
       activeIndex2: '1',
-      promise: true
+      promise: ['isUser', 'isAdmin']
     }
   },
   computed: {
@@ -41,15 +47,17 @@ export default {
   methods: {
     handleSelect (key, keyPath) {
       if (key === '3') {
-        this.promise = false
-        console.log(this.promise)
+        // this.$store.commit('CLEAR_PERMISSIONS')
+        // console.log(this.$store.getters['permissions'])
         return
       }
       if (key === '4') {
-        this.promise = true
-        console.log(this.promise)
+        console.log('promise', this.promise)
+        this.promise = []
+        console.log('promise', this.promise)
         return
       }
+      console.log(this.$store.getters['permissions'])
       this.$router.push({name: key})
     }
   }

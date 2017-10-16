@@ -9,7 +9,9 @@ export const UPDATE_USER = (state, user) => {
 export const APPNAV_SEARCH = (state, searchData) => {
   state.appnav = searchData
 }
-
+export const CLEAR_PERMISSIONS = state => {
+  state.permissions = []
+}
 /**
  * Clear each property, one by one, so reactivity still works.
  *

@@ -25,4 +25,8 @@ initialState.appnav = {
   searchTimestamp: null
 }
 
+// init permissons
+// initialState.permissions = ['isUser', 'isAdmin']
+initialState.permissions = ['isUser', 'isAdmin']
+
 export const state = initialState

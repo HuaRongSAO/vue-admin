@@ -13,7 +13,11 @@ const router = new Router({
       path: '/',
       name: 'index',
       component: Hello,
-      beforeEnter: checkAuth
+      beforeEnter: checkAuth,
+      meta: {
+        permission: 'admin',
+        fail: '/error'
+      }
     },
     ...adminRouter,
     ...publicRouter
